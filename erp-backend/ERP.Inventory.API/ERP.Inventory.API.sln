@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Inventory.API", "ERP.Inventory.API.csproj", "{7EB0ED60-8B55-5B35-7973-8DC08F3FEEB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EB0ED60-8B55-5B35-7973-8DC08F3FEEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EB0ED60-8B55-5B35-7973-8DC08F3FEEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EB0ED60-8B55-5B35-7973-8DC08F3FEEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EB0ED60-8B55-5B35-7973-8DC08F3FEEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4879B412-3F8B-46A5-A2BA-3436669CF4AA}
+	EndGlobalSection
+EndGlobal
