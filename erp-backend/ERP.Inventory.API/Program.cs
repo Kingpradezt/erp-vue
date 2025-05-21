@@ -1,41 +1,49 @@
+using Microsoft.EntityFrameworkCore;
+using ERP.Inventory.API.Data;   // Your Data namespace
+using ERP.Inventory.API.Services; // Your Services namespace (BaseService)
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Add CORS policy to allow your Vue.js app on localhost:8080
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowVueApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:8080")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+// Add controller services
+builder.Services.AddControllers();
+builder.Services.AddScoped<BaseService>();
+
+// Add OpenAPI (Swagger)
+//builder.Services.AddOpenApi();
+
+// Register your AppDbContext with MariaDB connection string
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(10, 4, 24)) // Update to your MariaDB version
+    ));
+
+// Register your BaseService for dependency injection
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+  //  app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseCors("AllowVueApp");
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+// Map controllers
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

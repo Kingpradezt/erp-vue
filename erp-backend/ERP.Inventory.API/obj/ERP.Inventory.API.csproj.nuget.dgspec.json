@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\ERP.Inventory.API\\ERP.Inventory.API.csproj": {}
+    "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\erp.inventory.api\\ERP.Inventory.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\ERP.Inventory.API\\ERP.Inventory.API.csproj": {
+    "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\erp.inventory.api\\ERP.Inventory.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\ERP.Inventory.API\\ERP.Inventory.API.csproj",
+        "projectUniqueName": "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\erp.inventory.api\\ERP.Inventory.API.csproj",
         "projectName": "ERP.Inventory.API",
-        "projectPath": "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\ERP.Inventory.API\\ERP.Inventory.API.csproj",
+        "projectPath": "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\erp.inventory.api\\ERP.Inventory.API.csproj",
         "packagesPath": "C:\\Users\\MYPC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\ERP.Inventory.API\\obj\\",
+        "outputPath": "C:\\Users\\MYPC\\ERP-Inventory\\erp-backend\\erp.inventory.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MYPC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -46,7 +46,15 @@
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.13, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.3, )"
             }
           },
           "imports": [
